@@ -4,7 +4,7 @@ from .models import Product
 
 class ProductListSerializer(serializers.ModelSerializer):
     owner_email = serializers.ReadOnlyField(source="owner.email")
-
+    owner = serializers.ReadOnlyField()
     class Meta:
         model = Product
         fields = ('owner', 'owner_email', ' title', 'price', 'image', 'stock')
@@ -12,6 +12,7 @@ class ProductListSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     owner_email = serializers.ReadOnlyField(source="owner.email")
+    owner = serializers.ReadOnlyField()
 
     class Meta:
         model = Product
